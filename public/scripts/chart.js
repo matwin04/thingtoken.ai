@@ -1,34 +1,13 @@
-async function fetchPriceData() {
-    try {
-        const response = await fetch('https://public-api.birdeye.so/public/price?address=Cuizqj9fDdanLNiRhtRE6aeTiHsBLPhm4eL8WYyZVLBG');
-        const data = await response.json();
-        const price = data.data.value;
+const TOKEN_MINT = "Cuizqj9fDdanLNiRhtRE6aeTiHsBLPhm4eL8WYyZVLBG";
+const SOL_MINT = "So11111111111111111111111111111111111111112";
+const API = "https://public-api.birdeye.so/public";
 
-        const ctx = document.getElementById('priceChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: [new Date().toLocaleTimeString()],
-                datasets: [{
-                    label: 'Token Price (SOL)',
-                    data: [price],
-                    borderColor: 'rgba(0, 194, 255, 1)',
-                    backgroundColor: 'rgba(0, 194, 255, 0.2)',
-                    tension: 0.25,
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: false
-                    }
-                }
-            }
-        });
-    } catch (error) {
-        console.error('Error fetching price data:', error);
-    }
-}
+const priceElement = document.getElementById("thingPrice");
+const priceUsdElement = document.getElementById("thingPriceUSD");
+const ctx = document.getElementById("thingChart");
 
-fetchPriceData();
+const getPrice = async (mint) => {
+    const r = await fetch(`${API}/price?address=${mint}`);
+    if (!r.ok) throw new Error("price API error");
+    return (await r.json()).data.value;
+};

@@ -1,47 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="ITS CLOBERIN TIME">
-    <title>ThingToken.ai</title>
-    <link rel="icon" type="image/x-icon" href="/public/images/thingtoken.png">
-    <script src="https://unpkg.com/lightweight-charts@4.0.0/dist/lightweight-charts.standalone.production.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-{{>navbar}}
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="ITS CLOBERIN TIME" />
+        <title>ThingToken.ai</title>
+        <link rel="icon" type="image/x-icon" href="/public/images/thingtoken.png" />
 
-<div id="welcome">
-    <h1>ThingToken.win</h1>
-    <p>Its Clobbering Time</p>
-</div>
-<p id="live-price"></p>
-<canvas id="priceChart" width="800" height="400"></canvas>
-<div id="tvchart" style="width: 100%; height: 500px;"></div>
-<script src="/public/scripts/chart.js"></script>
+        <script src="https://unpkg.com/lightweight-charts@4.0.0/dist/lightweight-charts.standalone.production.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+        <link href="/public/styles/main.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+        {{>navbar}}
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <!-- Hero / CTA -->
+        <section id="welcome">
+            <h1>ThingToken.win</h1>
+            <p>It’s Clobberin’ Time.</p>
+            <a class="cta-btn" href="/buy">BUY THING</a>
+        </section>
 
-<script>
-    const options = {
-        method: 'GET',
-        headers: {
-            accept: 'application/json',
-            'X-API-Key': 'YOUR_API_KEY'
-        }
-    };
-
-    fetch('https://solana-gateway.moralis.io/token/mainnet/Cuizqj9fDdanLNiRhtRE6aeTiHsBLPhm4eL8WYyZVLBG/price', options)
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
-</script>
+        <!-- Live Price + Chart -->
+        <iframe
+                width="100%"
+                height="600"
+                src="https://birdeye.so/tv-widget/Cuizqj9fDdanLNiRhtRE6aeTiHsBLPhm4eL8WYyZVLBG?chain=solana&viewMode=pair&chartInterval=15&chartType=Candle&chartTimezone=America%2FLos_Angeles&chartLeftToolbar=show&theme=light&chartOverrides=paneProperties.backgroundType%3Asolid"
+                frameborder="0"
+                allowfullscreen>
+        </iframe>
 
 
 
-{{> footer}}
+        {{>footer}}
 
-
-</body>
+        <script src="/public/scripts/chart.js"></script>
+    </body>
 </html>

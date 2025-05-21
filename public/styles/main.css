@@ -1,11 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&family=Poppins:wght@300;400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Material+Icons');
+@import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&family=Poppins:wght@300;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Icons");
 
 h1 {
-    font-family: 'Michroma', sans-serif;
+    font-family: "Michroma", sans-serif;
 }
 #welcome {
     font-family: "Michroma", sans-serif;
     text-align: center;
+}
+#livePrice {
+    font-family: "Michroma", sans-serif;
+    text-align: center;
+}
+
+#livePrice h1 {
+    font-size: 1rem;
+}
+#thingPrice {
+    font-size: 0.75rem;
 }

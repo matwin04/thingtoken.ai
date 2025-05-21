@@ -23,7 +23,6 @@ async function setupDB() {
                 postText VARCHAR(150) UNIQUE NOT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )`;
-
     } catch (err) {
         console.error(err);
     }

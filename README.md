@@ -1,1 +1,1 @@
-# ThingToken.ai
+# ThingToken.win
