@@ -50,7 +50,21 @@ app.get("/blog", async (req, res) => {
 app.get("/chat",async(req,res)=>{
     const chats = await sql `SELECT * FROM chat ORDER BY created_at DESC`;
     res.render("chat",{title:"Chat",chats});
-})
+});
+app.post("/chat/new", async (req, res) => {
+    const { chatcontent, from_user } = req.body;
+    const created_at = new Date().toISOString(); // Get current time in ISO format
+    try {
+        await sql`
+            INSERT INTO chat (chatcontent, from_user, created_at)
+            VALUES (${chatcontent}, ${from_user}, ${created_at})
+        `;
+        res.redirect("/chat");
+    } catch (err) {
+        console.error("Error adding chat message:", err);
+        res.status(500).send("Error adding chat message");
+    }
+});
 app.get("/contact",(req, res) => {
     res.render("contact",{title:"Contact Us"});
 })

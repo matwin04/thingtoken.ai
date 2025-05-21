@@ -8,6 +8,15 @@
         {{>navbar}}
         <h1>ThingChat</h1>
         <p>Welcome to thingchat</p>
+
+        <form method="POST" action="/chat/new">
+            <label for="chatcontent">Name:</label>
+            <input type="text" id="chatcontent" name="chatcontent" required><br>
+
+            <label for="from_user">Code:</label>
+            <input type="text" id="from_user" name="from_user"><br>
+            <button type="submit">Send</button>
+        </form>
         {{#each chats}}
         <div class="message">
             <p id="messageHeading">{{chatcontent}}</p>
