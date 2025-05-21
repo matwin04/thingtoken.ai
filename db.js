@@ -1,4 +1,4 @@
-import postgres from 'postgres'
+import postgres from "postgres";
 import dotenv from "dotenv";
 dotenv.config();
 const connectionString = process.env.POSTGRES_URL;
@@ -23,8 +23,15 @@ async function setupDB() {
                 postText VARCHAR(150) UNIQUE NOT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )`;
+        await sql`
+            CREATE TABLE IF NOT EXISTS chat (
+                id SERIAL PRIMARY KEY,
+                chatContent VARCHAR(300) UNIQUE NOT NULL,
+                from_user VARCHAR(100) UNIQUE NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )`;
     } catch (err) {
         console.error(err);
     }
 }
-export {sql,setupDB};
+export { sql, setupDB };

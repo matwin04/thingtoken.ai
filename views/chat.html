@@ -6,7 +6,14 @@
     </head>
     <body>
         {{>navbar}}
-        <h1>CHAT</h1>
+        <h1>ThingChat</h1>
+        <p>Welcome to thingchat</p>
+        {{#each posts}}
+        <div class="message">
+            <h3 id="messageHeading">{{chatHeading}}</h3>
+        </div>
+        {{/each}}
+        <hr />
         {{>footer}}
     </body>
 </html>
