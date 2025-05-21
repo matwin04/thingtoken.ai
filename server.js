@@ -48,7 +48,7 @@ app.get("/blog", async (req, res) => {
     res.render("blog", {title:"Blog",posts});
 });
 app.get("/chat",async(req,res)=>{
-    const chats = await sql `SELECT * FROM chats ORDER BY created_at DESC`;
+    const chats = await sql `SELECT * FROM chat ORDER BY created_at DESC`;
     res.render("chat",{title:"Chat",chats});
 })
 app.get("/contact",(req, res) => {
