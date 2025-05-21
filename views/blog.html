@@ -7,7 +7,15 @@
 <body>
 {{> navbar}}
 
+
 <h1>{{title}}</h1>
+{{#each posts}}
+<article>
+    <h2>{{posttitle}}</h2>
+    <h4>{{postsubtitle}}</h4>
+    <p>{{postcontent}}</p>
+</article>
+{{/each}}
 {{> footer}}
 </body>
 </html>

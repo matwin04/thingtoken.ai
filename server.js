@@ -5,7 +5,7 @@ import multer from "multer";
 import dotenv from "dotenv";
 import { engine } from "express-handlebars";
 import { fileURLToPath } from "url";
-
+import {sql,setupDB} from "./db.js";
 
 dotenv.config();
 
@@ -31,6 +31,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/public", express.static(PUBLIC_DIR));
 
+
+// DB Function
+
+
+setupDB();
 // Routes
 app.get("/", (req, res) => {
     res.render("index",{title:"Thing Token"});
@@ -38,9 +43,9 @@ app.get("/", (req, res) => {
 app.get("/about",(req, res) => {
     res.render("about",{title:"About"});
 })
-app.get("/blog",(req, res) => {
-
-    res.render("blog", {title:"Blog"});
+app.get("/blog", async (req, res) => {
+    const posts = await sql `SELECT * FROM blogposts ORDER BY created_at DESC`;
+    res.render("blog", {title:"Blog",posts});
 });
 app.get("/contact",(req, res) => {
     res.render("contact",{title:"Contact Us"});
