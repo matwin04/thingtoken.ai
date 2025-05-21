@@ -10,7 +10,8 @@
         <p>Welcome to thingchat</p>
         {{#each posts}}
         <div class="message">
-            <h3 id="messageHeading">{{chatHeading}}</h3>
+            <p id="messageHeading">{{chatcontent}}</p>
+            <label>{{from_user}}</label>
         </div>
         {{/each}}
         <hr />
