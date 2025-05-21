@@ -35,6 +35,9 @@ app.use("/public", express.static(PUBLIC_DIR));
 app.get("/", (req, res) => {
     res.render("index");
 });
+app.get("/blog",(req, res) => {
+    res.render("blog");
+})
 // Start server
 app.listen(PORT, () => {
     console.log(`🚀 Server running at http://localhost:${PORT}`);
