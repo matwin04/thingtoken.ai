@@ -33,10 +33,17 @@ app.use("/public", express.static(PUBLIC_DIR));
 
 // Routes
 app.get("/", (req, res) => {
-    res.render("index");
+    res.render("index",{title:"Thing Token"});
 });
+app.get("/about",(req, res) => {
+    res.render("about",{title:"About"});
+})
 app.get("/blog",(req, res) => {
-    res.render("blog");
+
+    res.render("blog", {title:"Blog"});
+});
+app.get("/contact",(req, res) => {
+    res.render("contact",{title:"Contact Us"});
 })
 // Start server
 app.listen(PORT, () => {
