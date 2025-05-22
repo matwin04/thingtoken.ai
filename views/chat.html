@@ -9,8 +9,11 @@
         {{>navbar}}
 
         <h1>ThingChat</h1>
-        <p>Welcome to thingchat. ThingChat is a revolutionary new chat system built apon the ThingToken blockchain.  Go Ahead and feel free to try it out for yourself.  <b>Its Clobberin Time!!!!!</b></p>
-        
+        <p>
+            Welcome to thingchat. ThingChat is a revolutionary new chat system built apon the ThingToken blockchain. Go
+            Ahead and feel free to try it out for yourself. <b>Its Clobberin Time!!!!!</b>
+        </p>
+
         <form method="POST" action="/chat/new">
             <label for="chatcontent">Name:</label>
             <input type="note" id="chatcontent" name="chatcontent" required /><br />
@@ -22,22 +25,19 @@
         {{#each chats}}
 
         <div class="chat">
-            <p>
-                <i>{{id}}</i>
-                <i>{{created_at}}</i>
-                <b>{{from_user}}</b><br />{{chatcontent}}
-                <i>{{id}}</i>
-            </p>
-
             <table>
-                <tr>
-                    <td>{{id}}</td>
-                    <td>{{created_at}}</td>
-                    <th>{{from_user}}</th>
-                </tr>
-                <tr>
-                    <td>{{chat_content}}</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>{{id}}</th>
+                        <th>{{created_at}}</th>
+                        <th>{{from_user}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="chat_content" colspan="3">{{chat_content}}</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
         {{/each}}

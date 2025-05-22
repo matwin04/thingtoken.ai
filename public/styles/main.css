@@ -2,18 +2,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&family=Poppins:wght@300;400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Material+Icons");
 
+body {
+    background: #f9f9f9;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
 h1 {
     font-family: "Michroma", sans-serif;
+    text-align: center;
+    margin-top: 2rem;
 }
+
 #welcome {
     font-family: "Michroma", sans-serif;
     text-align: center;
+    margin-bottom: 2rem;
 }
+
 #livePrice {
     font-family: "Michroma", sans-serif;
     text-align: center;
+    margin: 1rem 0;
 }
-
 #livePrice h1 {
     font-size: 1rem;
 }
@@ -21,12 +34,69 @@ h1 {
     font-size: 0.75rem;
 }
 
+/* Chat Styles */
 .chat {
-    font-family: "Poppins", sans-serif;
-    border: 1px solid black;
-    padding: 0.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin: 1.5rem auto;
+    width: 90%;
+    max-width: 700px;
+    transition: transform 0.2s ease-in-out;
 }
-.chat p{
+.chat:hover {
+    transform: scale(1.01);
+}
+
+.chat table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.chat thead {
+    background-color: #4caf50;
+    color: white;
+    border-radius: 10px;
+}
+
+.chat th, .chat td {
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.chat td[colspan="3"] {
+    background-color: #fef6e4;
+    font-size: 0.95rem;
+    border-top: 1px solid #ddd;
+    font-weight: 400;
+}
+
+/* Form styling */
+form {
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+form input, form button {
     font-family: "Poppins", sans-serif;
-    
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+form button {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+form button:hover {
+    background-color: #43a047;
 }
