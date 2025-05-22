@@ -3,36 +3,53 @@
     <head>
         <meta charset="UTF-8" />
         <title>Title</title>
-
+        <link href="/public/styles/main.css" rel="stylesheet" />
     </head>
     <body>
         {{>navbar}}
 
         <h1>ThingChat</h1>
-        <p>Welcome to thingchat</p>
-
+        <p>Welcome to thingchat. ThingChat is a revolutionary new chat system built apon the ThingToken blockchain.  Go Ahead and feel free to try it out for yourself.  <b>Its Clobberin Time!!!!!</b></p>
+        
         <form method="POST" action="/chat/new">
             <label for="chatcontent">Name:</label>
-            <input type="note" id="chatcontent" name="chatcontent" required><br>
+            <input type="note" id="chatcontent" name="chatcontent" required /><br />
 
             <label for="from_user">Code:</label>
-            <input type="text" id="from_user" name="from_user"><br>
+            <input type="text" id="from_user" name="from_user" /><br />
             <button type="submit">Send</button>
         </form>
         {{#each chats}}
-        
+
         <div class="chat">
             <p>
-                <b>{{from_user}}</b><br>{{chatcontent}}
+                <i>{{id}}</i>
+                <i>{{created_at}}</i>
+                <b>{{from_user}}</b><br />{{chatcontent}}
                 <i>{{id}}</i>
             </p>
+
+            <table>
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{created_at}}</td>
+                    <th>{{from_user}}</th>
+                </tr>
+                <tr>
+                    <td>{{chat_content}}</td>
+                </tr>
+            </table>
         </div>
         {{/each}}
         <hr />
         {{>footer}}
     </body>
     <script>
-        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+        window.va =
+            window.va ||
+            function () {
+                (window.vaq = window.vaq || []).push(arguments);
+            };
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
 </html>
