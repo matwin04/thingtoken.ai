@@ -21,8 +21,12 @@ h1 {
     font-size: 0.75rem;
 }
 
-.message {
+.chat {
     font-family: "Poppins", sans-serif;
     border: 1px solid black;
     padding: 0.5rem;
+}
+.chat p{
+    font-family: "Poppins", sans-serif;
+    
 }
