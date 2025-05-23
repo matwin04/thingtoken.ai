@@ -48,10 +48,12 @@ app.get("/blog", async (req, res) => {
     res.render("blog", {title:"Blog",posts});
 });
 
-app.get("/blog/:id", (req, res) => {
+app.get("/blog/:id", async (req, res) => {
     const id = req.params.id;
-    const blogPost = await sql(`SELECT * FROM blogposts WHERE id = ${id}`);
-    res.render("blog", {title:"Blog",blogPost});
+    const blogPost = await sql(`SELECT *
+                                FROM blogposts
+                                WHERE id = ${id}`);
+    res.render("blog", {title: "Blog", blogPost});
 })
 app.get("/chat",async(req,res)=>{
     const chats = await sql `SELECT * FROM chat ORDER BY created_at DESC`;
