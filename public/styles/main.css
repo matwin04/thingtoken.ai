@@ -9,9 +9,9 @@ body {
     padding: 0;
     color: #333;
 }
-img {
-    width: 300px;
-    height: 300px;
+.pfp {
+    width: 100px;
+    height: 100px;
 }
 h1 {
     font-family: "Michroma", sans-serif;
