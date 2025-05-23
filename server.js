@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 import { engine } from "express-handlebars";
 import { fileURLToPath } from "url";
 import { sql, setupDB } from "./db.js";
-
+import bcrypt from "bcrypt";
 dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
@@ -80,6 +80,39 @@ app.post("/chat/new", async (req, res) => {
 });
 app.get("/contact", (req, res) => {
     res.render("contact", { title: "Contact Us" });
+});
+app.get("/signup", (req, res) => {
+    res.render("user/signup",{title:"SignUp"});
+})
+app.get("/login", (req, res) => {
+    res.render("user/login", { title: "Login" });
+})
+
+
+//API Functions
+app.post("/api/signup",async (req, res) => {
+    const {username,email,password} = req.body;
+    if (!username||!password||!email) return res.status(400).send("Username is required");
+    const hashedPassword = await bcrypt.hash(password, 12);
+    try {
+        await sql `INSERT INTO users (username,email,password) VALUES (${username},${email},${hashedPassword})`;
+        res.status(201).json({message:"User Created"});
+    } catch (err) {
+        res.status(400).json({error:"User Allready Created"});
+    }
+});
+app.post("/api/login",async(req,res)=>{
+    const {email,password}=req.body;
+    if (!email || !password) return res.status(400).json({ error: "Missing Credentials" });
+
+    const user = await sql`SELECT * FROM users WHERE email = ${email}`;
+    if (user.length === 0) return res.status(400).json({ error: "User Not Found" });
+
+    const isValidPassword = await bcrypt.compare(password, user[0].password_hash);
+    if (!isValidPassword) return res.status(401).json({ error: "Invalid Password" });
+
+    req.session.user = { id: user[0].id, username: user[0].username };
+    res.json({ message: "Login Successful", username: user[0].username });
 });
 // Start server
 app.listen(PORT, () => {

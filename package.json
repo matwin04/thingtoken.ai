@@ -20,6 +20,7 @@
   "homepage": "https://github.com/matwin04/thingtoken.ai#readme",
   "description": "",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "express-handlebars": "^8.0.3",

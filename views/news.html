@@ -4,8 +4,8 @@
         <meta charset="UTF-8" />
         <title>Thing News</title>
         <link rel="stylesheet" href="/public/styles/main.css" />
-        
-        <link rel="stylesheet" href="/public/styles/news.css"/>
+
+        <link rel="stylesheet" href="/public/styles/news.css" />
     </head>
     <body>
         <header class="site-header">
@@ -13,47 +13,65 @@
             <p class="tagline">Aren’t you clobberin’ for more news?</p>
         </header>
 
-        <main class="grid">
-            <!-- Main story -->
-            <article class="main-story">
-                <img src="/public/images/mines.jpg" alt="Main story image" />
-                <div class="story-content">
-                    <span class="category">Minecraft</span>
+        <main class="news-grid">
+            <!-- HEADLINE STORY -->
+            <article class="headline">
+                <img src="/public/images/mines.jpg" alt="Headline Image" />
+                <div class="content">
+                    <span class="category">MINECRAFT</span>
                     <h2>Local Boy Yearns For the Mines</h2>
                     <p class="excerpt">"First we mine, then we craft. LET’S MINECRAFT!"</p>
                     <p class="author">By Minecraft Steve • May 22, 2025</p>
                 </div>
             </article>
 
-            <!-- Side stories -->
-            <aside class="side-stories">
+            <!-- RIGHT COLUMN STORIES -->
+            <article class="side-card top">
+                <img src="/public/images/sexy3.webp" alt="Alien attack" />
+                <div>
+                    <span class="category">WORLD</span>
+                    <h3>NERV HQ Attacked by Aliens</h3>
+                    <p>By Rei Ayanami • May 22, 2025</p>
+                </div>
+            </article>
+
+            <article class="side-card bottom">
+                <img src="/public/images/villagerstrike.jpg" alt="Villager Strike" />
+                <div>
+                    <span class="category">FINANCE</span>
+                    <h3>Villagers Strike Over Wage Cuts</h3>
+                    <p>By Iron Golem Union • May 22, 2025</p>
+                </div>
+            </article>
+
+            <section class="story-row">
                 <article class="story-card">
-                    <img src="/public/images/sexy1.jpg" alt="Tokyo-3 attack" />
+                    <img src="/public/images/story1.jpg" alt="Story 1" />
                     <div>
-                        <span class="category">WORLD</span>
-                        <h3>NERV HQ Attacked by Aliens</h3>
-                        <p>By Rei Ayanami • May 22, 2025</p>
+                        <span class="category">TECH</span>
+                        <h3>Redstone AI Overheats Village Logic Gates</h3>
+                        <p>By RedstoneRandy • May 22, 2025</p>
                     </div>
                 </article>
 
                 <article class="story-card">
-                    <img src="/public/images/villagerstrike.jpg" alt="Villager Strike" />
+                    <img src="/public/images/story2.jpg" alt="Story 2" />
                     <div>
-                        <span class="category">FINANCE</span>
-                        <h3>Villagers Strike Over Wage Cuts</h3>
-                        <p>By Iron Golem Union • May 22, 2025</p>
+                        <span class="category">CULTURE</span>
+                        <h3>New Creeper Music Genre Blows Up Online</h3>
+                        <p>By ExplodaBoi • May 22, 2025</p>
                     </div>
                 </article>
-            </aside>
+
+                <article class="story-card">
+                    <img src="/public/images/story3.jpg" alt="Story 3" />
+                    <div>
+                        <span class="category">SCIENCE</span>
+                        <h3>Block Physics Finally Explained by Notch</h3>
+                        <p>By EnderDoc • May 22, 2025</p>
+                    </div>
+                </article>
+            </section>
         </main>
-
-        <section class="poll">
-            <h3>Your Opinion</h3>
-            <p>Which Azumanga Daioh character best resonates with you?</p>
-            <form>
-                <label><input type="radio" name="azumanga" value="osaka" /> Ayumu "Osaka" Kasuga</label><br />
-                <label><input type="radio" name="azumanga" value="tomo" /> Tomo Takino</label><br />
-            </form>
-        </section>
     </body>
 </html>

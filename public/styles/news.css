@@ -1,33 +1,69 @@
 body {
-    margin: 2px 2px;
+    margin: 0;
     font-family: "Poppins", sans-serif;
-    background-color: #f9f9f9;
+    background: #f2f2f2;
     color: #222;
 }
 
 .site-header {
     text-align: center;
-    padding: 10px 10px;
-    background-color: #fff;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    padding: 2rem 1rem;
+    background: white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
+
 .site-header h1 {
     font-family: "Michroma", sans-serif;
     margin: 0;
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
+
 .tagline {
-  font-style: italic;
-  color: #666;
+    color: #666;
+    font-style: italic;
 }
-.main-story {
-    flex: 2;
-    background-color: aliceblue;
+
+.news-grid img {
+    width: 100px;
+    height: 100px;
+}
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Headline story spans 2x2 */
+.headline {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    background: white;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
 }
-.main-story img {
+
+.headline img {
     width: 100%;
     height: auto;
-    display: block;
+}
+
+.headline .content {
+    padding: 1rem;
+}
+
+.category {
+    background: crimson;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
 }
