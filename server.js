@@ -47,10 +47,26 @@ app.get("/blog", async (req, res) => {
     const posts = await sql `SELECT * FROM blogposts ORDER BY created_at DESC`;
     res.render("blog", {title:"Blog",posts});
 });
+
+app.get("/blog/:id", async (req, res) => {
+    const id = req.params.id;
+    const blogPost = await sql(`SELECT *
+                                FROM blogposts
+                                WHERE id = ${id}`);
+    res.render("blog", {title: "Blog", blogPost});
+})
 app.get("/chat",async(req,res)=>{
     const chats = await sql `SELECT * FROM chat ORDER BY created_at DESC`;
     res.render("chat",{title:"Chat",chats});
 });
+app.get("/chat/:id",async(req,res)=>{
+    const id = req.params.id;
+    const chat = await sql(`SELECT * FROM chatposts WHERE id = ${id}`);
+    res.render("chat",{title:"Chat",chat:chat});
+});
+app.get("/misato",async (req,res)=>{
+    res.render("epic",{title:"Misato"});
+})
 app.post("/chat/new", async (req, res) => {
     const { chatcontent, from_user } = req.body;
     const created_at = new Date().toISOString(); // Get current time in ISO format
