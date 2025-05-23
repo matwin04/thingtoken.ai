@@ -16,10 +16,12 @@ const app = express();
 const VIEWS_DIR = path.join(__dirname, "views");
 const PARTIALS_DIR = path.join(VIEWS_DIR, "partials");
 const PUBLIC_DIR = path.join(__dirname, "public");
-
 const upload = multer();
 const PORT = process.env.PORT || 3003;
 
+app.use("/public", express.static(path.join(__dirname, "public")));
+app.use("/styles", express.static(path.join(__dirname, "public/styles")));
+app.use("/scripts", express.static(path.join(__dirname, "public/scripts")));
 // Template engine
 app.engine("html", engine({ extname: ".html", defaultLayout: false, partialsDir: PARTIALS_DIR }));
 app.set("view engine", "html");
