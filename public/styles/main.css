@@ -9,16 +9,11 @@ body {
     padding: 0;
     color: #333;
 }
-.pfp {
-    width: 100px;
-    height: 100px;
-}
 h1 {
     font-family: "Michroma", sans-serif;
     text-align: center;
     margin-top: 2rem;
 }
-
 #welcome {
     font-family: "Michroma", sans-serif;
     text-align: center;
@@ -36,70 +31,16 @@ h1 {
 #thingPrice {
     font-size: 0.75rem;
 }
-
-/* Chat Styles */
-.chat {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    margin: 1.5rem auto;
-    width: 90%;
-    max-width: 700px;
-    transition: transform 0.2s ease-in-out;
+.investorProfile {
+    margin: 2px 2px;
+    padding: 10px 10px;
 }
-.chat:hover {
-    transform: scale(1.01);
+.pfp {
+    height: 200px;
+    width: 200px;
+    box-shadow: 0px 0px 18px rgba(0, 0, 0);
 }
 
-.chat table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.chat thead {
-    background-color: #4caf50;
-    color: white;
-    border-radius: 10px;
-}
-
-.chat th, .chat td {
-    padding: 0.75rem;
-    text-align: left;
-}
-
-.chat td[colspan="3"] {
-    background-color: #fef6e4;
-    font-size: 0.95rem;
-    border-top: 1px solid #ddd;
-    font-weight: 400;
-}
-
-/* Form styling */
-form {
-    width: 90%;
-    max-width: 700px;
-    margin: 0 auto 2rem auto;
-    padding: 1rem;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-}
-form input, form button {
-    font-family: "Poppins", sans-serif;
-    padding: 0.5rem;
-    margin: 0.5rem 0;
-    width: 100%;
-    box-sizing: border-box;
-}
-form button {
-    background-color: #4caf50;
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: background 0.3s ease;
-}
-form button:hover {
-    background-color: #43a047;
+#investors {
+    margin: 2px 2px;
 }
