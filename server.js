@@ -51,6 +51,9 @@ app.get("/chat",async(req,res)=>{
     const chats = await sql `SELECT * FROM chat ORDER BY created_at DESC`;
     res.render("chat",{title:"Chat",chats});
 });
+app.get("/misato",async (req,res)=>{
+    res.render("epic",{title:"Misato"});
+})
 app.post("/chat/new", async (req, res) => {
     const { chatcontent, from_user } = req.body;
     const created_at = new Date().toISOString(); // Get current time in ISO format

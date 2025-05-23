@@ -25,6 +25,7 @@
     "express-handlebars": "^8.0.3",
     "multer": "^2.0.0",
     "postgres": "^3.4.7",
+    "vercel": "^42.1.1",
     "ws": "^8.18.2"
   }
 }
