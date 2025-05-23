@@ -1,0 +1,33 @@
+body {
+    margin: 2px 2px;
+    font-family: "Poppins", sans-serif;
+    background-color: #f9f9f9;
+    color: #222;
+}
+
+.site-header {
+    text-align: center;
+    padding: 10px 10px;
+    background-color: #fff;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+.site-header h1 {
+    font-family: "Michroma", sans-serif;
+    margin: 0;
+    font-size: 2rem;
+}
+.tagline {
+  font-style: italic;
+  color: #666;
+}
+.main-story {
+    flex: 2;
+    background-color: aliceblue;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+.main-story img {
+    width: 100%;
+    height: auto;
+    display: block;
+}

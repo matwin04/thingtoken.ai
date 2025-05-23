@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&family=Poppins:wght@300;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Icons");
+
+body {
+    background: #f9f9f9;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+h1 {
+    font-family: "Michroma", sans-serif;
+    text-align: center;
+    margin-top: 2rem;
+}
+#welcome {
+    font-family: "Michroma", sans-serif;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#livePrice {
+    font-family: "Michroma", sans-serif;
+    text-align: center;
+    margin: 1rem 0;
+}
+#livePrice h1 {
+    font-size: 1rem;
+}
+#thingPrice {
+    font-size: 0.75rem;
+}
+.investorProfile {
+    margin: 2px 2px;
+    padding: 10px 10px;
+}
+.pfp {
+    height: 200px;
+    width: 200px;
+    box-shadow: 0px 0px 18px rgba(0, 0, 0);
+}
+
+#investors {
+    margin: 2px 2px;
+}
