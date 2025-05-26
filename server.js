@@ -4,6 +4,7 @@ import fs from "fs";
 import multer from "multer";
 import dotenv from "dotenv";
 import { engine } from "express-handlebars";
+import session from 'express-session';
 import { fileURLToPath } from "url";
 import { sql, setupDB } from "./db.js";
 import bcrypt from "bcrypt";
@@ -28,7 +29,13 @@ app.set("views", VIEWS_DIR);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/public", express.static(PUBLIC_DIR));
-
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET || "thing-secret",
+        resave: false,
+        saveUninitialized: true,
+    })
+);
 // DB Function
 
 setupDB();
@@ -64,8 +71,9 @@ app.get("/news", async (req, res) => {
     res.render("news", { title: "Misato" });
 });
 app.post("/chat/new", async (req, res) => {
-    const { chatcontent, from_user } = req.body;
-    const created_at = new Date().toISOString(); // Get current time in ISO format
+    const { chatcontent } = req.body;
+    const from_user = req.session.user?.username || "Anonymous";
+    const created_at = new Date().toISOString();
     try {
         await sql`
             INSERT INTO chat (chatcontent, from_user, created_at)
@@ -86,6 +94,12 @@ app.get("/signup", (req, res) => {
 app.get("/login", (req, res) => {
     res.render("user/login", { title: "Login" });
 })
+app.get("/profile/:username", async (req, res) => {
+    const username = req.params.username;
+    const user = await sql`SELECT * FROM users WHERE username = ${username}`;
+    if (user.length === 0) return res.status(404).send("User not found");
+    res.render("user", { username });
+});
 
 
 //API Functions
