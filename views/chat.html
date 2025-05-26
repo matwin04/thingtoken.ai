@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <title>Title</title>
+        <link href="/public/styles/main.css" rel="stylesheet" />
     </head>
     <body>
         {{>navbar}}
@@ -13,7 +14,6 @@
             Ahead and feel free to try it out for yourself. <b>Its Clobberin Time!!!!!</b>
         </p>
 
-
         <h2>I JUST THINGED ALL OVER THE PLACE</h2>
         <form method="POST" action="/chat/new">
             <label for="chatcontent">Name:</label>
@@ -23,29 +23,29 @@
             <input type="text" id="from_user" name="from_user" /><br />
             <button type="submit">Send</button>
         </form>
-        {{#each chats}}
 
-        <div class="chat">
-            <table>
-                <thead>
-                    <tr>
-                        <th>{{id}}</th>
-                        <th>{{created_at}}</th>
-                        <th>{{from_user}}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td id="chat_content" colspan="3">{{chat_content}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        {{/each}}
+        <table class="chattable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>From User</th>
+                    <th>Message</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each chats}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{from_user}}</td>
+                    <td>{{chatContent}}</td>
+                    <td>{{created_at}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
         <hr />
         {{>footer}}
-
-
     </body>
     <script>
         window.va =

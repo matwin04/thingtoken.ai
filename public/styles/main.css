@@ -44,3 +44,14 @@ h1 {
 #investors {
     margin: 2px 2px;
 }
+td,th {
+    border: 1px solid black;
+}
+
+.chattable {
+    border: 1px solid black;
+    border-spacing: 0;
+    width: 100%;
+    text-align: center;
+    background-color: cornsilk;
+}
