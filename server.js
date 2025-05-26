@@ -94,7 +94,7 @@ app.post("/api/signup",async (req, res) => {
     if (!username||!password||!email) return res.status(400).send("Username is required");
     const hashedPassword = await bcrypt.hash(password, 12);
     try {
-        await sql `INSERT INTO users (username,email,password) VALUES (${username},${email},${hashedPassword})`;
+        await sql `INSERT INTO users (username,email,password_hash) VALUES (${username},${email},${hashedPassword})`;
         res.status(201).json({message:"User Created"});
     } catch (err) {
         res.status(400).json({error:"User Allready Created"});

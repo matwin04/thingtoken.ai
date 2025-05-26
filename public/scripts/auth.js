@@ -3,21 +3,33 @@ async function signup() {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    const res = await fetch("/api/signup", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            username,
-            email,
-            password
-        })
-    });
+    // Basic Validation
+    if (!username||!email||!password){
+        alert("Please enter a valid username");
+        return;
+    }
+    try  {
+        const res = await fetch("/api/signup", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ username, email, password })
+        });
 
-    const data = await res.json();
-    alert(data.message ||data.error);
-    if (res.ok) window.location.href = "/login";
+        const data = await res.json();
+        console.log("Signup response:", data);
+
+        if (res.ok) {
+            alert(data.message || "Signup successful!");
+            window.location.href = "/login";
+        } else {
+            alert(data.error || "Signup failed.");
+        }
+    } catch (err) {
+        console.error("Signup error:", err);
+        alert("An unexpected error occurred.");
+    }
 }
 
 async function login() {
