@@ -90,10 +90,14 @@ app.get("/contact", (req, res) => {
 });
 app.get("/signup", (req, res) => {
     res.render("user/signup",{title:"SignUp"});
-})
+});
 app.get("/login", (req, res) => {
     res.render("user/login", { title: "Login" });
-})
+});
+app.get("/logout", (req, res) => {
+    req.session.destroy();
+    res.redirect("/login");
+});
 app.get("/profile/:username", async (req, res) => {
     const username = req.params.username;
     const user = await sql`SELECT * FROM users WHERE username = ${username}`;
